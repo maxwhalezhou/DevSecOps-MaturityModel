@@ -76,6 +76,7 @@ Implementation:
         to ensure that changes to critical branches are only possible under defined conditions.
         These policies can be implemented at repository level or organization level,
         depending on the source code management system.
+        Ensure that all commits are signed to verify that the author is genuine.
       difficultyOfImplementation:
         knowledge: 2
         time: 1
@@ -146,6 +147,102 @@ Implementation:
         - 14.2.1  # Secure development policies.
         d3f:
         - Multi-factorAuthentication
+      isImplemented: false
+      evidence: ""
+      comments: ""
+    Use of .gitignore:
+      risk: Accidental commitment of sensitive, debug, or workstation specific data. 
+      measure: >-
+        Ensure that all git repos have a .gitignore in the root directory. 
+      difficultyOfImplementation:
+        knowledge: 1
+        time: 1
+        resources: 2
+      usefulness: 2
+      level: 1
+      implementation: []
+      references:
+        samm2: []
+        iso27001-2017: []
+      isImplemented: false
+      evidence: ""
+      comments: ""
+    Use of User Roles for SCM:
+      risk: Excessive permissions for SCM users may lead to unwanted source code modification and access. 
+      measure: >-
+        Create unique user and team roles so that access to source code can be tailored
+      difficultyOfImplementation:
+        knowledge: 1
+        time: 1
+        resources: 2
+      usefulness: 2
+      level: 1
+      implementation: []
+      references:
+        samm2: []
+        iso27001-2017: []
+      isImplemented: false
+      evidence: ""
+      comments: ""
+    Enforcement of SSH protocol to access code repositories:
+      risk: Risk of exposed credentials makes HTTPS a less-secure method for accessing code.
+      measure: >-
+        As an SCM admin, disable HTTP(S) access to Git respositories and require usage of SSH protocol.
+      difficultyOfImplementation:
+        knowledge: 1
+        time: 1
+        resources: 2
+      usefulness: 2
+      level: 2
+      description: >-
+        Usage of HTTPS over SSH for accessing git repositories has its advantages. Both provide adequate protection against man-in-the-middle 
+        (MiTM) attacks. However, an HTTPS connection is only as secure as the user password is unknown. In the case of credential breach, it less
+        likely that the SSH keys have been exposed. As an organization's developer count grows, so does the risk of credential re-use and compromise.
+      implementation: []
+      references:
+        samm2: []
+        iso27001-2017: []
+      isImplemented: false
+      evidence: ""
+      comments: ""
+    Add GPG key to central SCM provider:
+      risk: Compromised credentials leads to source code manipulation
+      measure: >-
+        This will guarantee that the person commiting changes to source really are who they say they are
+      difficultyOfImplementation:
+        knowledge: 2
+        time: 2
+        resources: 2
+      usefulness: 2
+      level: 2
+      implementation: []
+      references:
+        samm2: []
+        iso27001-2017: []
+      isImplemented: false
+      evidence: ""
+      comments: ""
+    Server Side Git Hooks:
+      risk: >-
+        Local security scanning and pre-commit checks are bypassed. Vulnerabilities may be identified later into the SDLC, costing more resources
+        than necessary to remediate. 
+      measure: >-
+        Utilize a server side git hook like update or post-receive hook to run automatic scans, such as those for security and stylistic issues
+      difficultyOfImplementation:
+        knowledge: 2
+        time: 3
+        resources: 3
+      usefulness: 3
+      level: 3
+      description: >-
+        Developers may not know how to run security tooling locally, forget to do so, or bypass/mute local checks before committing code due to the noise. 
+        As a defense-in-depth control, comments should be made at the PR level by scanning tooling for issues that go beyond the risk threshold (such as High
+        /Critical vulnerabilities). Teams can get near real-time feedback on security issues. Catching security issues at this level prevents vulnerabilities
+        from entering critical code branches and subsequently, production code. This control requires continuous tuning once implemented.
+      implementation: []
+      references:
+        samm2: []
+        iso27001-2017: []
       isImplemented: false
       evidence: ""
       comments: ""
