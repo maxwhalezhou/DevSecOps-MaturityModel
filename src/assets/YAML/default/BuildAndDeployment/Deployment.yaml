@@ -290,4 +290,48 @@ Build and Deployment:
       isImplemented: false
       evidence: ""
       comments: ""
+    Role Based CI/CD Administration:
+      risk: >-
+        Improper CI/CD tooling permissions may allow for a unauthorized changes to test and deployment requirements, potentially 
+        resulting in unstable or unreliable software in a production environment. 
+      measure: >-
+        Create and enforce user or team roles so that only the appropriate people can change or disable tests and deployment requirements
+      difficultyOfImplementation:
+        knowledge: 2
+        time: 3
+        resources: 3
+      usefulness: 3
+      level: 4
+      description: >-
+        As an organization's DevOps practices mature and further rely on automated practices, it becomes increasingly important that appropriate
+        permissions are in put in place to prevent users from bypassing quality gates across all deployments into production.
+      implementation: []
+      references:
+        samm2: []
+        iso27001-2017: []
+      isImplemented: false
+      evidence: ""
+      comments: ""
+    Alternative Deployment Process:
+      risk: >-
+        In an emergency where SCM is down, all changes to deployment environments may be impossible to perform, halting the organization's productivity. 
+      measure: >-
+        Have tested and working alternative way to deploy changes to your application other than using your standard process with your SCM, such as GitHub 
+        or Bitbucket, in case they go down. This must include the ability to push to PROD from local in emergencies.
+      difficultyOfImplementation:
+        knowledge: 3
+        time: 3
+        resources: 3
+      usefulness: 2
+      level: 4
+      description: >-
+        Probability that SCM tooling is not high. However, in the case such a situation occurs, it is important to have tested
+        processes and procedures to so as any CI/CD pipeline with a single point of failure can be detrimental to an organization. 
+      implementation: []
+      references:
+        samm2: []
+        iso27001-2017: []
+      isImplemented: false
+      evidence: ""
+      comments: ""
 ...
