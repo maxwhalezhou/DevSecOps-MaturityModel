@@ -131,4 +131,52 @@ Implementation:
       isImplemented: false
       evidence: ""
       comments: ""
+    Vulnerability Disclosure:
+      risk: >-
+        If a security issue is identified, it may be difficult for a user to share the information with your organization without
+        formal instruction. 
+      measure: >-
+        Create and publish a set of procedures to let people contact you when they find security issues in your app. You can opt to
+        areate a security.txt file in the root of your application so people know how to contact you about security issues
+      difficultyOfImplementation:
+        knowledge: 1
+        time: 1
+        resources: 1
+      usefulness: 3
+      level: 1
+      description: >-
+        Often times a formal bug bounty program may not be available. Security researchers that stumble upon an issue may
+        want to communicate an identified issue to provide recommendations for remediation. Providing a simple way for them
+        to get in contact can help your organization identify issues before they become exploited for nefarious motives.
+        Guidance: [security.txt](https://securitytxt.org/)
+      implementation:
+      references:
+        samm2: []
+        iso27001-2017: []
+      isImplemented: false
+      evidence: ""
+      comments: ""
+    Bug Bounty:
+      risk: >-
+        Security flaws are pushed to production, slipping through existing quality gates and limited-scope security assessments.
+      measure: >-
+        Setup a bug bounty program to incentivize security researchers to tell you about vulnerabilities they find
+      difficultyOfImplementation:
+        knowledge: 2
+        time: 2
+        resources: 3
+      usefulness: 3
+      level: 4
+      description: >-
+        Bug bounty programs can help your organization identify security flaws that might go undetected in penetration testing assessments. 
+        As code changes occur so frequently in modern applications and security teams run leaner, there are bound to be design or logic flaws 
+        that go into production. Incentivizing security researchers to work with you to identify issues can provide additional assurance from
+        an outside perspective. Bug bounty programs should not be used as a replacement of formal penetration testing assessments.
+      implementation:
+      references:
+        samm2: []
+        iso27001-2017: []
+      isImplemented: false
+      evidence: ""
+      comments: ""
 ...
